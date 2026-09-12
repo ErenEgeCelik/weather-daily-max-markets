@@ -1,11 +1,11 @@
 """
 KalmanWeatherModel — Bayesian state estimator for temperature prediction markets.
 
-Adapted for offline replay from the production engine that traded Polymarket's
+Adapted for offline replay from the inference research for Polymarket's
 daily maximum-temperature markets (see github.com/ErenEgeCelik/prediction-market-research,
 "Weather Markets: A Succession of Edges"). The live network pollers are removed;
 observations are injected by the replay driver and a replay clock replaces wall time.
-The filter math is unchanged from production.
+Deployment and calibration versions are documented separately in docs/.
 
 Hidden state:
   T(t)   = instantaneous temperature at the resolving station (continuous)
@@ -24,9 +24,9 @@ Outputs (all descending from the same posterior):
   Q_next = P(next METAR = m)         — analytic Gaussian round-PMF at the publish minute
   D_after(m) = P(daily_max = k | next METAR = m)  — hypothetical-observation conditioning
 
-Because the three share one posterior they satisfy the consistency identity
+The implementation evaluates the intended approximate consistency identity
   sum_m Q(m) * D_after(k|m) ~= P_now(k)
-up to Monte Carlo noise — used as a built-in correctness check.
+as a diagnostic; Monte Carlo error and construction differences require separate evaluation.
 """
 from __future__ import annotations
 

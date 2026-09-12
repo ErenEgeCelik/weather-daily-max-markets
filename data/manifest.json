@@ -1,0 +1,23 @@
+{
+  "kind": "recorded example",
+  "date": "2026-06-11",
+  "market": "Istanbul LTFM",
+  "ordering": "arrival timestamp ts",
+  "files": [
+    {
+      "path": "data/istanbul_2026-06-11/forecast_raw.jsonl",
+      "sha256": "4ca1a34d98c5fbe14fcd3ca69bb2d4a762bf00e81728e8192db0c67233723b15",
+      "records": 42
+    },
+    {
+      "path": "data/istanbul_2026-06-11/metar_raw.jsonl",
+      "sha256": "80caf35b1b2ea4894154a2327d53b579285d889943747f8efc115170848e7c86",
+      "records": 26
+    },
+    {
+      "path": "data/istanbul_2026-06-11/pws_raw.jsonl",
+      "sha256": "b8e69d41e677b18c234c5d94d4b7734e8f0eabd0d40320df4005ea6285cecc52",
+      "records": 1097
+    }
+  ]
+}
