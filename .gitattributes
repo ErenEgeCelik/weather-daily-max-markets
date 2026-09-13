@@ -1,0 +1,4 @@
+*.py text eol=lf
+*.md text eol=lf
+# Preserve the frozen input bytes used by the provenance hashes on every OS.
+data/** -text

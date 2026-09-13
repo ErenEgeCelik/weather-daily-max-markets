@@ -1,0 +1,254 @@
+[
+  {
+    "city": "london",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.35,
+    "bias": -0.01,
+    "rmse": 0.61,
+    "within1": 0.99
+  },
+  {
+    "city": "paris",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.38,
+    "bias": -0.31,
+    "rmse": 0.87,
+    "within1": 0.96
+  },
+  {
+    "city": "munich",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.45,
+    "bias": -0.34,
+    "rmse": 0.7,
+    "within1": 0.98
+  },
+  {
+    "city": "tel-aviv",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.45,
+    "bias": -0.19,
+    "rmse": 0.72,
+    "within1": 0.97
+  },
+  {
+    "city": "toronto",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.54,
+    "bias": -0.13,
+    "rmse": 0.78,
+    "within1": 0.97
+  },
+  {
+    "city": "milan",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.58,
+    "bias": -0.34,
+    "rmse": 0.87,
+    "within1": 0.94
+  },
+  {
+    "city": "madrid",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.62,
+    "bias": -0.32,
+    "rmse": 0.98,
+    "within1": 0.92
+  },
+  {
+    "city": "moscow",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.73,
+    "bias": 0.0,
+    "rmse": 1.02,
+    "within1": 0.89
+  },
+  {
+    "city": "istanbul",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.77,
+    "bias": -0.52,
+    "rmse": 1.05,
+    "within1": 0.89
+  },
+  {
+    "city": "ankara",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.91,
+    "bias": -0.76,
+    "rmse": 1.14,
+    "within1": 0.85
+  },
+  {
+    "city": "wellington",
+    "unit": "C",
+    "n": 93,
+    "mae": 0.94,
+    "bias": -0.83,
+    "rmse": 1.17,
+    "within1": 0.81
+  },
+  {
+    "city": "shanghai",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.01,
+    "bias": -0.56,
+    "rmse": 1.26,
+    "within1": 0.77
+  },
+  {
+    "city": "chicago",
+    "unit": "F",
+    "n": 93,
+    "mae": 1.02,
+    "bias": 0.29,
+    "rmse": 1.37,
+    "within1": 0.76
+  },
+  {
+    "city": "buenos-aires",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.02,
+    "bias": -0.91,
+    "rmse": 1.36,
+    "within1": 0.78
+  },
+  {
+    "city": "miami",
+    "unit": "F",
+    "n": 93,
+    "mae": 1.03,
+    "bias": -0.45,
+    "rmse": 1.36,
+    "within1": 0.8
+  },
+  {
+    "city": "singapore",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.04,
+    "bias": -0.83,
+    "rmse": 1.39,
+    "within1": 0.74
+  },
+  {
+    "city": "atlanta",
+    "unit": "F",
+    "n": 93,
+    "mae": 1.05,
+    "bias": -0.49,
+    "rmse": 1.44,
+    "within1": 0.73
+  },
+  {
+    "city": "warsaw",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.09,
+    "bias": 0.44,
+    "rmse": 1.39,
+    "within1": 0.73
+  },
+  {
+    "city": "seattle",
+    "unit": "F",
+    "n": 93,
+    "mae": 1.11,
+    "bias": -0.2,
+    "rmse": 1.43,
+    "within1": 0.71
+  },
+  {
+    "city": "dallas",
+    "unit": "F",
+    "n": 93,
+    "mae": 1.17,
+    "bias": 0.63,
+    "rmse": 1.53,
+    "within1": 0.7
+  },
+  {
+    "city": "cape-town",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.2,
+    "bias": 0.3,
+    "rmse": 1.78,
+    "within1": 0.75
+  },
+  {
+    "city": "helsinki",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.26,
+    "bias": 1.24,
+    "rmse": 1.53,
+    "within1": 0.67
+  },
+  {
+    "city": "tokyo",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.26,
+    "bias": -1.24,
+    "rmse": 1.64,
+    "within1": 0.67
+  },
+  {
+    "city": "nyc",
+    "unit": "F",
+    "n": 93,
+    "mae": 1.4,
+    "bias": 0.71,
+    "rmse": 1.75,
+    "within1": 0.66
+  },
+  {
+    "city": "taipei",
+    "unit": "C",
+    "n": 93,
+    "mae": 1.67,
+    "bias": -1.11,
+    "rmse": 1.98,
+    "within1": 0.48
+  },
+  {
+    "city": "amsterdam",
+    "unit": "C",
+    "n": 93,
+    "mae": 2.13,
+    "bias": 1.96,
+    "rmse": 2.47,
+    "within1": 0.3
+  },
+  {
+    "city": "hong-kong",
+    "unit": "C",
+    "n": 93,
+    "mae": 2.27,
+    "bias": -2.25,
+    "rmse": 2.5,
+    "within1": 0.25
+  },
+  {
+    "city": "seoul",
+    "unit": "C",
+    "n": 93,
+    "mae": 5.28,
+    "bias": -5.28,
+    "rmse": 5.75,
+    "within1": 0.01
+  }
+]

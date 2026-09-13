@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-09-14",
+  "provenance": "data/research/provenance.json",
+  "public_command": "python examples/research_audit.py --json",
+  "not_claimed": [
+    "full historical model refit/replay rerun",
+    "chronological held-out skill",
+    "market execution or trading returns",
+    "deployed Kalman dominance"
+  ],
+  "studies": [
+    {
+      "id": "W-RESEARCH-01-FEATURES",
+      "question": "Incremental remaining-rise information from sensor fields",
+      "status": "FROZEN_INPUT_FIXED_CANDIDATE_LOO_RECHECK",
+      "source_symbol": "tools/pws_feature/analyze.py::build_rows,loo_mae",
+      "input": "data/research/daily_sensor_features.csv",
+      "row_count": 1374,
+      "independence_unit": "calendar weather day; hours repeat days",
+      "baseline": [
+        "temp_now",
+        "solar_now",
+        "day_index"
+      ],
+      "split": "leave one day out, not chronological",
+      "target_unit": "degrees Celsius",
+      "result_file": "data/research/feature_recheck.json",
+      "unresolved_historical_mismatch": "Original Istanbul prose 10h delta -.131C vs fixed-cache -.404478956C; original report input manifest not recovered."
+    },
+    {
+      "id": "W-RESEARCH-01-CALIBRATION",
+      "question": "Selected parameters versus global defaults",
+      "status": "same-data selected-vs-default fit artifacts; fits not rerun",
+      "source_symbol": "tools/pws_feature/fit_market.py::score,main",
+      "input": "data/research/market_fits.json",
+      "markets": 28,
+      "weighting": "equal market",
+      "mean_relative_improvement_pct": 24.353098459896355,
+      "median_relative_improvement_pct": 25.78408532947546,
+      "markets_above_20_pct": 17
+    },
+    {
+      "id": "W-RESEARCH-01-ABLATION",
+      "question": "METAR/forecast pipeline versus refitted PWS-augmented pipeline",
+      "status": "SAME_DATA_REFITTED_ABLATION_AGGREGATE",
+      "source_symbol": "tools/pws_feature/information_gain.py::fit_arm,main",
+      "result": [
+        {
+          "bridge": false,
+          "n_snapshots": 552,
+          "rps_without": 0.06877943855494792,
+          "rps_with": 0.05707649067059708,
+          "relative_reduction_pct": 17.01518379653732
+        },
+        {
+          "bridge": true,
+          "n_snapshots": 552,
+          "rps_without": 0.09060929373226748,
+          "rps_with": 0.07624960814738133,
+          "relative_reduction_pct": 15.847916911609728
+        }
+      ],
+      "independence_unit": "92 calendar days, each repeated at six hours",
+      "split": "same days fit and score; both arms refit",
+      "support": "common contiguous ordinal support within each paired comparison"
+    },
+    {
+      "id": "W-RESEARCH-02-SOURCE_SUBSTITUTED",
+      "question": "Model versus market outcome score",
+      "status": "ARCHIVED_PAIRED_SCORE_RECHECK",
+      "source_symbol": "tools/production_replay_audit.py::score_snapshots,cluster_bootstrap",
+      "score_unit": "multiclass Brier sum, range 0..2, positive difference means model worse",
+      "mean_weighting": "equal snapshot",
+      "bootstrap_unit": "city-day",
+      "bootstrap_reps": 1000,
+      "results": [
+        {
+          "model": "ecmwf_proxy_kalman",
+          "n_snapshots": 5104,
+          "clusters": 177,
+          "model_brier_mean": 0.3343478345415361,
+          "market_brier_mean": 0.2764138318931878,
+          "model_minus_market_brier_mean": 0.057934002648348255,
+          "difference_ci95_cluster_bootstrap": [
+            0.03316177101673569,
+            0.08245213670556271
+          ],
+          "bootstrap_probability_difference_nonpositive": 0.0
+        }
+      ]
+    },
+    {
+      "id": "W-RESEARCH-02-PRODUCTION_JOURNAL",
+      "question": "Model versus market outcome score",
+      "status": "ARCHIVED_PAIRED_SCORE_RECHECK",
+      "source_symbol": "tools/production_replay_audit.py::score_snapshots,cluster_bootstrap",
+      "score_unit": "multiclass Brier sum, range 0..2, positive difference means model worse",
+      "mean_weighting": "equal snapshot",
+      "bootstrap_unit": "city-day",
+      "bootstrap_reps": 1000,
+      "results": [
+        {
+          "model": "recorded_legacy",
+          "n_snapshots": 38,
+          "clusters": 16,
+          "model_brier_mean": 0.3883217436039247,
+          "market_brier_mean": 0.22579807725273346,
+          "model_minus_market_brier_mean": 0.16252366635119125,
+          "difference_ci95_cluster_bootstrap": [
+            0.0500565757705457,
+            0.3650483190511621
+          ],
+          "bootstrap_probability_difference_nonpositive": 0.002
+        },
+        {
+          "model": "replay_kalman",
+          "n_snapshots": 43,
+          "clusters": 16,
+          "model_brier_mean": 0.27629567248834963,
+          "market_brier_mean": 0.19958044140867956,
+          "model_minus_market_brier_mean": 0.0767152310796701,
+          "difference_ci95_cluster_bootstrap": [
+            -0.004257831224160053,
+            0.1814872825169517
+          ],
+          "bootstrap_probability_difference_nonpositive": 0.033
+        }
+      ]
+    },
+    {
+      "id": "W-RESEARCH-02-PRE_METAR_ALL",
+      "question": "Model versus market outcome score",
+      "status": "ARCHIVED_PAIRED_SCORE_RECHECK",
+      "source_symbol": "tools/production_replay_audit.py::score_snapshots,cluster_bootstrap",
+      "score_unit": "multiclass Brier sum, range 0..2, positive difference means model worse",
+      "mean_weighting": "equal snapshot",
+      "bootstrap_unit": "city-day",
+      "bootstrap_reps": 1000,
+      "results": [
+        {
+          "model": "recorded_legacy",
+          "n_snapshots": 126,
+          "clusters": 33,
+          "model_brier_mean": 0.3067378314568884,
+          "market_brier_mean": 0.24426030185241032,
+          "model_minus_market_brier_mean": 0.062477529604478055,
+          "difference_ci95_cluster_bootstrap": [
+            -0.04279948367895257,
+            0.1713628011176466
+          ],
+          "bootstrap_probability_difference_nonpositive": 0.116
+        }
+      ]
+    },
+    {
+      "id": "W-RESEARCH-02-PRE_METAR_CONSISTENT",
+      "question": "Model versus market outcome score",
+      "status": "ARCHIVED_PAIRED_SCORE_RECHECK",
+      "source_symbol": "tools/production_replay_audit.py::score_snapshots,cluster_bootstrap",
+      "score_unit": "multiclass Brier sum, range 0..2, positive difference means model worse",
+      "mean_weighting": "equal snapshot",
+      "bootstrap_unit": "city-day",
+      "bootstrap_reps": 1000,
+      "results": [
+        {
+          "model": "recorded_legacy",
+          "n_snapshots": 77,
+          "clusters": 26,
+          "model_brier_mean": 0.29737133478759065,
+          "market_brier_mean": 0.22778408761067753,
+          "model_minus_market_brier_mean": 0.06958724717691309,
+          "difference_ci95_cluster_bootstrap": [
+            -0.010175593605585937,
+            0.16698918954500672
+          ],
+          "bootstrap_probability_difference_nonpositive": 0.048
+        }
+      ]
+    }
+  ],
+  "source_only_diagnostics": [
+    "tools/pws_feature/divergence.py::analyse (solar/wind discrepancy method; no new numeric result)",
+    "forward-price slope summaries (archived, not rerun)",
+    "forecast_skill.json (archived rounded errors, not full curve recheck)",
+    "Q bootstrap intervals (archived); only Q event means/counts rechecked"
+  ]
+}

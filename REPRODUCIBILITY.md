@@ -7,11 +7,10 @@ Python 3.10+ is the common target. Publication checks use Python 3.11 on Windows
 ```bash
 python -B examples/acquisition_walkthrough.py
 python -B examples/execution_walkthrough.py
-python -B -m unittest discover -s tests -v
 ```
 
 The acquisition fixture is hand-authored. The execution example injects local metadata, signing and
-transport implementations. Tests exercise scheduling, parsing, cache/preparation and order lifecycle
+transport implementations. Engineering tests exercise scheduling, parsing, cache/preparation and order lifecycle
 behavior. Connection-probe tests mock the network. These commands do not make a request to a venue or
 reproduce a historical latency benchmark.
 
@@ -30,6 +29,33 @@ Data provenance and file hashes are in `data/manifest.json`. Identical inputs su
 comparison; numerical results may depend on model sampling and dependency versions. Compare event
 counts and numerical tolerance rather than assuming image-byte identity across plotting versions.
 
+## Probability, decision and research examples
+
+After installing `requirements.txt`:
+
+```bash
+python -B examples/probability_walkthrough.py
+python -B examples/decision_walkthrough.py
+python -B examples/research_audit.py
+python -B examples/plot_research_scores.py --out output/research-scores.png
+python -B -m unittest discover -s tests -v
+```
+
+The probability walkthrough exposes source updates, posterior uncertainty and P/Q/D distributions
+using a declared weather fixture. The decision walkthrough evaluates payoff/risk and conditional
+actions with offline inputs. These demonstrate model and decision arithmetic, not trading returns.
+
+The research audit uses the compact historical extracts in `data/research/`. The
+[experiment index](docs/experiments.md) describes each calculation, its inputs and its relationship to
+the historical estimator. Recomputing a score from archived predictions does not refit the model or
+regenerate those predictions from raw sensor histories.
+
+The plot command runs the same audit before drawing paired model-minus-market Brier differences.
+Intervals use city-day resampling; the figure does not combine the separate studies into one estimate.
+
+The full test suite includes analytical filter checks, hypothetical-state restoration, contract
+payoffs and decision constraints, score calculations, and the earlier engineering tests.
+
 ## Timing report and optional measurement tool
 
 `benchmarks/historical_report.json` transcribes archived reported values; original per-request records
@@ -39,6 +65,8 @@ are not included. The [report](benchmarks/README.md) describes sample and timing
 explicit URL performs a new network measurement from the reader's machine. It does not reproduce the
 historical multi-region experiment, and no live-order measurement path is included.
 
-The [source record](docs/engineering-provenance.md) distinguishes historical code, public adaptations,
-recorded inputs and synthetic examples. The existing inference model and journals are unchanged by the
-engineering expansion.
+The [engineering source record](docs/engineering-provenance.md), [model notes](docs/model-derivation.md)
+and [decision notes](docs/decision-implementation.md) distinguish historical code, public corrections,
+recorded inputs and synthetic examples. The journals remain unchanged. Publication corrections in the
+model and decision components are separately tested; archived experiment results keep their historical
+version labels.

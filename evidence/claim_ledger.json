@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "claims": [
     {
       "id": "W-ENG-01",
@@ -71,6 +71,83 @@
       "sample": "Istanbul, 2026-06-11",
       "result": "1165 recorded input events",
       "reproduction_level": "single-day recorded replay; not held-out skill or returns"
+    },
+    {
+      "id": "W-MODEL-02",
+      "contribution": "Shared temperature posterior with current, next-report and conditional outcome distributions",
+      "status": "SOURCE_DERIVED_IMPLEMENTATION",
+      "method": "Forecast-pull process, source-specific observation variance and offset, hourly Monte Carlo, explicit consistency diagnostic",
+      "implementation": "kalman_engine.py",
+      "example": "examples/probability_walkthrough.py",
+      "evidence": "docs/model-derivation.md",
+      "source_ids": [
+        "weather-scalar-model",
+        "weather-legacy-model",
+        "weather-forecast-provider",
+        "weather-ensemble-prototype"
+      ],
+      "reproduction_level": "analytical unit checks and synthetic probability walkthrough; historical versions described separately",
+      "deployment_status": "public offline model with labeled publication corrections"
+    },
+    {
+      "id": "W-RESEARCH-01",
+      "contribution": "Sensor information analysis and calibration design",
+      "status": "HISTORICAL_STUDIES_WITH_COMPACT_RECHECKS",
+      "method": "Daily features, paired leave-one-day-out ridge comparison, residual association, sensor ablation and selected-versus-default fitting",
+      "implementation": "weather_research/evaluation.py",
+      "example": "examples/research_audit.py",
+      "evidence": "evidence/experiments.json",
+      "documentation": "docs/calibration.md",
+      "reproduction_level": "frozen daily-feature calculations and historical aggregate/fit arithmetic; not the full model-fitting pipeline",
+      "deployment_status": "offline research"
+    },
+    {
+      "id": "W-RESEARCH-02",
+      "contribution": "Historical replay, journal and pre-observation probability evaluation",
+      "status": "ARCHIVED_PREDICTION_SCORE_RECHECK",
+      "method": "Quoted-support Brier score, paired snapshot means and city-day cluster bootstrap",
+      "implementation": "weather_research/evaluation.py",
+      "example": "examples/research_audit.py",
+      "evidence": "evidence/experiments.json",
+      "documentation": "docs/experiments.md",
+      "units": "multiclass Brier score without 1/K normalization",
+      "sample_unit": "snapshot; uncertainty resamples city-days",
+      "reproduction_level": "compact archived predictions and sufficient statistics; one complete city-day checks score aggregation",
+      "deployment_status": "historical source-substituted replay and separate journal/event diagnostics"
+    },
+    {
+      "id": "W-DECISION-01",
+      "contribution": "Portfolio payoff, inventory risk and conditional action evaluation",
+      "status": "SOURCE_DERIVED_IMPLEMENTATION",
+      "method": "Common-outcome portfolio mean and variance, feasible BUY/SELL/HOLD enumeration, one-step utility comparison and conditional-report playbooks",
+      "implementation": "weather_research/decisions.py",
+      "example": "examples/decision_walkthrough.py",
+      "evidence": "docs/decision-implementation.md",
+      "source_ids": [
+        "W-DECISION-MDP",
+        "W-DECISION-REACTION",
+        "W-DECISION-EXIT",
+        "W-DECISION-PLAYBOOK",
+        "W-DECISION-BRAIN"
+      ],
+      "units": "dollars, shares, dollars squared; inverse-dollar risk penalty",
+      "reproduction_level": "synthetic model/book scenarios and accounting regression tests",
+      "deployment_status": "offline extraction; publication correctness fixes not attributed to historical deployment"
+    },
+    {
+      "id": "W-STRATEGY-01",
+      "contribution": "Observation-confirmed outcome transitions and repricing-rule construction",
+      "status": "SOURCE_DERIVED_IMPLEMENTATION",
+      "method": "Monotonic observed maximum, bounded and open-tail payoffs, persistent conditions and conjunctive book-price cascade heuristic",
+      "implementation": "weather_research/rules.py",
+      "example": "examples/decision_walkthrough.py",
+      "evidence": "docs/strategies.md",
+      "source_ids": [
+        "W-STRATEGY-RULES"
+      ],
+      "reproduction_level": "source-derived rule examples and controlled transition tests",
+      "deployment_status": "historical sidecar rules; public extraction is offline"
     }
-  ]
+  ],
+  "updated_on": "2026-09-14"
 }

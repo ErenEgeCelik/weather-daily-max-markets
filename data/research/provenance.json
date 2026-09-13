@@ -1,0 +1,361 @@
+{
+  "extracted_on": "2026-09-14",
+  "private_archive_label": "weather research archive",
+  "source_paths_are_relative_to_private_archive": true,
+  "source_files": [
+    {
+      "source": "tools/pws_feature/analyze.py",
+      "sha256": "ebac63747a44f596cf9006c895d897c82c13c3d1e2b10a2ad4e1e48a7a94207b",
+      "bytes": 15574
+    },
+    {
+      "source": "tools/pws_feature/information_gain.py",
+      "sha256": "151fe97164c7026225fc774746da478633715846172367b726895aeceee9a364",
+      "bytes": 15271
+    },
+    {
+      "source": "tools/pws_feature/divergence.py",
+      "sha256": "529c51bf7196d0d4c1639d53c42256313287da17819524ec3d1618f326e8eb51",
+      "bytes": 7819
+    },
+    {
+      "source": "tools/pws_feature/fit_market.py",
+      "sha256": "edebc54ed69484fc21a298d93577087907ab7640bf911400091c4704c874c3e6",
+      "bytes": 13575
+    },
+    {
+      "source": "tools/pws_feature/fit_all.py",
+      "sha256": "1670222390dc00dd564cb62766ad90db0e893f6571c4fecdc16ddf7722c5ce35",
+      "bytes": 3480
+    },
+    {
+      "source": "tools/pws_feature/forecast_skill.py",
+      "sha256": "c93fd4b00192ecef95079ab9aed4697a9997824e417e00a5fe42b9a389fbbfb8",
+      "bytes": 3397
+    },
+    {
+      "source": "tools/pws_feature/fetch_forecast.py",
+      "sha256": "ed085cb30d0e3c3a1f6089654359c458dc12cab6e097f568c4f72b63c3723dee",
+      "bytes": 2879
+    },
+    {
+      "source": "tools/source_substituted_replay.py",
+      "sha256": "51403378474db134e9bb824546453615db78f8d27a55c2e4ddab390f25dd2af8",
+      "bytes": 21862
+    },
+    {
+      "source": "tools/production_replay_audit.py",
+      "sha256": "90f8b087ef60def44c6b7f5891c34f7168431e5154dca3fcd2fff7ad49962e8d",
+      "bytes": 44603
+    },
+    {
+      "source": "tools/pre_metar_audit.py",
+      "sha256": "d74ab7cf99d7e18f2c74bf95f17e5f9da4974bbe748a18019c971ec1bb140408",
+      "bytes": 19381
+    },
+    {
+      "source": "tools/forecast_run_archive.py",
+      "sha256": "d4f9c832183591f0708795e231ce13509b2f4548b285ddf9d547505b1a15611a",
+      "bytes": 9547
+    },
+    {
+      "source": "PWS_FEATURE_VALUE.md",
+      "sha256": "cd8a7c3f48b8f2f3a74754b5a77361cb1d8073e39a650d16c9cb2ee3f1df02c9",
+      "bytes": 6966
+    },
+    {
+      "source": "MODEL_CALIBRATION_RESULTS.md",
+      "sha256": "4a6a8181f87cf287616f94f594d8863007a0d067521bd330a3fda9fc2ef1c619",
+      "bytes": 6523
+    },
+    {
+      "source": "docs/REPLAY_BACKTEST.md",
+      "sha256": "1b0339b11e50a57d16a4282e1b8e3b593457ea2f0310d459761914d5acab9711",
+      "bytes": 17386
+    },
+    {
+      "source": "data/replay_audit/proxy_3m/matched_snapshots.csv",
+      "sha256": "2a2088266edf0791f2ffe364eb7e7543da61d10cec81a76068c1b3a9939ffc07",
+      "bytes": 6528581
+    },
+    {
+      "source": "data/replay_audit/pilot/matched_snapshots.csv",
+      "sha256": "b84653375f892d3f6cf81a3f7af87cef8fbfa2a1f495a6ed709ea72e1cb15953",
+      "bytes": 75083
+    },
+    {
+      "source": "data/replay_audit/pre_metar/fair_bucket_rows.csv",
+      "sha256": "8c133ea56e5cf76a479918a52fb9e8e9107cdc589c1370bcef60b92cbf09f6bc",
+      "bytes": 132615
+    },
+    {
+      "source": "data/replay_audit/pre_metar/q_events.csv",
+      "sha256": "b3a997556360a263f91bf443abb9246b74f8ae9ce92379ae3c8d43b490f2a7e1",
+      "bytes": 40680
+    },
+    {
+      "source": "data/replay_audit/proxy_3m/summary.json",
+      "sha256": "ba5c42bc9d88bc368fe459956d3fba0fe25623d36347d75ab602ddc5eaf82dc8",
+      "bytes": 125775
+    },
+    {
+      "source": "data/replay_audit/pilot/pilot_summary.json",
+      "sha256": "93579e3fc42bc00d918ce43ddfd13be8de66f9a2886f877feece4217bc91063c",
+      "bytes": 38214
+    },
+    {
+      "source": "data/replay_audit/pre_metar/summary.json",
+      "sha256": "c1f7c1c2315cf7a369baa16a83478e2281241f73a1fca65d0430538420c8f03f",
+      "bytes": 8164
+    },
+    {
+      "source": "data/model_cal/fit_amsterdam.json",
+      "sha256": "6ee218459c7bc1f16b8c07f2314732cf4d79f94bbd9f83f8d205c33d7d16ba73",
+      "bytes": 1567
+    },
+    {
+      "source": "data/model_cal/fit_ankara.json",
+      "sha256": "bdb6f8fe2ff2e33b6ef1e28790edf13f61926e54fb3876e31d33ab98e00803f8",
+      "bytes": 1561
+    },
+    {
+      "source": "data/model_cal/fit_atlanta.json",
+      "sha256": "21fd71d005862999ce687715f71b5fb8ba2dfd4bff9a80ad905cf1eb010da9d1",
+      "bytes": 1857
+    },
+    {
+      "source": "data/model_cal/fit_buenos-aires.json",
+      "sha256": "8b0004b648f0a4fd54c014bc1ee335f5650f574fd04df076a964c1161a330c21",
+      "bytes": 1746
+    },
+    {
+      "source": "data/model_cal/fit_cape-town.json",
+      "sha256": "d2d32ab46c770c11417cdda8e4081d6ea96badb8729df5fbafb72b92e168e523",
+      "bytes": 1714
+    },
+    {
+      "source": "data/model_cal/fit_chicago.json",
+      "sha256": "76f537e0fedae9be9b584cda2f0bf3c4f75ec8acd3c56bb4f0fdb92f77f53186",
+      "bytes": 1854
+    },
+    {
+      "source": "data/model_cal/fit_dallas.json",
+      "sha256": "9b0843af9e07c044e024760d5899b6d7dddd704bb47a4ed2b20f2d37c48d8efc",
+      "bytes": 1856
+    },
+    {
+      "source": "data/model_cal/fit_helsinki.json",
+      "sha256": "6f0098aaee935f99b20864e7f3376a483208ea0387af7c5005993ce62733383e",
+      "bytes": 1629
+    },
+    {
+      "source": "data/model_cal/fit_hong-kong.json",
+      "sha256": "39bc02454b5b74a1c29a3d72af511167474276877adb2b7a814dc273bc2d14b1",
+      "bytes": 1567
+    },
+    {
+      "source": "data/model_cal/fit_istanbul.json",
+      "sha256": "405e9d62a8ee29183bd862b570ca5ff293eb7f14fe4889cef29d5b3d1cadbe86",
+      "bytes": 1727
+    },
+    {
+      "source": "data/model_cal/fit_london.json",
+      "sha256": "6eef2cf4376958780455b24852eee00a61ea7be693d34bbeb0e7b3753848c667",
+      "bytes": 1725
+    },
+    {
+      "source": "data/model_cal/fit_madrid.json",
+      "sha256": "d5c9f4246f0a10e1252107aa716ec0eca4d5fb2574567bac55f57a708d850865",
+      "bytes": 1561
+    },
+    {
+      "source": "data/model_cal/fit_miami.json",
+      "sha256": "f8e41089aa6eeb34c93238eda5e75a8dd313b70f70674bde8c0244ca5c494596",
+      "bytes": 1831
+    },
+    {
+      "source": "data/model_cal/fit_milan.json",
+      "sha256": "2537d8397fb206213bcc90e5efe1dcdd60d7fca1980200049356241721129a27",
+      "bytes": 1722
+    },
+    {
+      "source": "data/model_cal/fit_moscow.json",
+      "sha256": "fd7079e8956cd01f67497c46b922114a26c3dcb0c15a592e4f5f47e7f43a2cc8",
+      "bytes": 1567
+    },
+    {
+      "source": "data/model_cal/fit_munich.json",
+      "sha256": "7ec54c3b832b5190ba2dbffc5f6ec1a7923f6c6be0217873768f861fef2044f8",
+      "bytes": 1719
+    },
+    {
+      "source": "data/model_cal/fit_nyc.json",
+      "sha256": "f027e8580f1b8d6007680b1878eb4769eff9d39c3e135c2e85987d143a831723",
+      "bytes": 1841
+    },
+    {
+      "source": "data/model_cal/fit_paris.json",
+      "sha256": "c6a1ed8eff59b97e66a98203a185a3ee31942f1d873eccc67d0afaef6c587c19",
+      "bytes": 1731
+    },
+    {
+      "source": "data/model_cal/fit_seattle.json",
+      "sha256": "3525c0be0817ebff8bd072806cb5d6236c761af7e4af1261bc4a16675595c24b",
+      "bytes": 1849
+    },
+    {
+      "source": "data/model_cal/fit_seoul.json",
+      "sha256": "c1eb62e88cf0f030fbd150c549e15d59595d67b56fdc8820297ab90249cbe170",
+      "bytes": 1604
+    },
+    {
+      "source": "data/model_cal/fit_shanghai.json",
+      "sha256": "520f4697c22823100c7dc0f40683db6d389190d7926c2f069e4b42e656d2ca4d",
+      "bytes": 1570
+    },
+    {
+      "source": "data/model_cal/fit_singapore.json",
+      "sha256": "1a9ef638a2cc758877c1a9aeb2e9e2be8f18797d83698d45c014cade65a7281a",
+      "bytes": 1567
+    },
+    {
+      "source": "data/model_cal/fit_taipei.json",
+      "sha256": "5fa9effe64580255a832488b2fa067bbf546226477bf1c66099a6fcd94e4efdc",
+      "bytes": 1564
+    },
+    {
+      "source": "data/model_cal/fit_tel-aviv.json",
+      "sha256": "ead1737dbc5410f47d1dce916f9486b696b6b590590171bcfb29c97890d8e8e8",
+      "bytes": 1571
+    },
+    {
+      "source": "data/model_cal/fit_tokyo.json",
+      "sha256": "cf2db752caa4c67a897ce7f0e8a34ae299ab4062cc3731dba1eb1949a3bf8cde",
+      "bytes": 1562
+    },
+    {
+      "source": "data/model_cal/fit_toronto.json",
+      "sha256": "c7ba1f4d67095f31e042c8069a9a8db55d1cf100d251bf2cc88fe805a20e9b36",
+      "bytes": 1710
+    },
+    {
+      "source": "data/model_cal/fit_warsaw.json",
+      "sha256": "966c056d74c23db65f6ff5c03046e9f5bc77cdebb9fb150bf6d868aac42c5216",
+      "bytes": 1742
+    },
+    {
+      "source": "data/model_cal/fit_wellington.json",
+      "sha256": "3401815bcaa44fb9e887fbe6f8440eee018e02e8cf03b1b84fbb070e19086a6b",
+      "bytes": 1730
+    },
+    {
+      "source": "data/model_cal/forecast_skill.json",
+      "sha256": "8355d8bb73167d679d45578f5d0d5c9779afca1a443376c124d28efb2a9631c6",
+      "bytes": 4043
+    },
+    {
+      "source": "data/model_cal/infogain_warsaw.json",
+      "sha256": "369e3eb3333b6b72ca0291bf41c75eab8cd92820bf899b163928e08f76ba575e",
+      "bytes": 2385
+    },
+    {
+      "source": "data/model_cal/infogain_warsaw_bridge.json",
+      "sha256": "cdbe04230206c63f9decbed53d3d60ad6d081ed3c87801678d9d48de1cc2fdb0",
+      "bytes": 2383
+    },
+    {
+      "source": "tools/pws_history_analyzer/cache/metar_iem2__LTFM_20260312_20260611__range.json",
+      "sha256": "c3a3a520aad019e7b9fe54558eed197b767629a6009d41c2d27d4ad893f0c4db",
+      "bytes": 175243
+    },
+    {
+      "source": "tools/pws_history_analyzer/cache/metar_iem2__KORD_20260312_20260611__range.json",
+      "sha256": "7db410e1245a0d50162001a8491644be73b0b982d5d5f287b995da91a72bd59a",
+      "bytes": 107436
+    },
+    {
+      "source": "tools/pws_history_analyzer/cache/metar_iem2__EGLC_20260312_20260611__range.json",
+      "sha256": "ea0527ee3fda3399eaeca46bd5938c770c7543de8baf6bffbb3529ac59160a14",
+      "bytes": 175424
+    }
+  ],
+  "weather_cache_manifest": "feature_cache_manifest.json",
+  "public_data": [
+    {
+      "file": "daily_sensor_features.csv",
+      "sha256": "3e31c7b050effed12a053ef3369becb405624737e350b59b26f9e59cb46e76c7",
+      "bytes": 307634
+    },
+    {
+      "file": "feature_cache_manifest.json",
+      "sha256": "51b0a86270b3fd49b131e704d43390acba966657849c651580b8f05206b10b16",
+      "bytes": 38874
+    },
+    {
+      "file": "feature_recheck.json",
+      "sha256": "482a76b23b1047b99ff13fc95d92a16344f82d43835ebafaedc3eaf8fe42f9e8",
+      "bytes": 5917
+    },
+    {
+      "file": "forecast_skill.json",
+      "sha256": "536cbad258af418814f71414fa85c3908bd16b0dd7453f3eaa85e56690c9b858",
+      "bytes": 3791
+    },
+    {
+      "file": "historical_replay_summaries.json",
+      "sha256": "62acc43d29a99b7644ff7360eec6c2e494c99c05b9a95724fdcf35fbdd5b3bc6",
+      "bytes": 19341
+    },
+    {
+      "file": "infogain_warsaw.json",
+      "sha256": "dd1656121387069674e8fe640715604e22f56497f9095c57d02ed86a9af53a7a",
+      "bytes": 2299
+    },
+    {
+      "file": "infogain_warsaw_bridge.json",
+      "sha256": "735342e075ccd305ca2e309c22d765a3c62729709fc9afa2b46edee15cb2e1fc",
+      "bytes": 2297
+    },
+    {
+      "file": "journal_buckets.csv",
+      "sha256": "5ed5234cd1fde81d664392589e42ead7f37c753508fccf6bb68a2bee9aab18d1",
+      "bytes": 44600
+    },
+    {
+      "file": "market_fits.json",
+      "sha256": "7e90ced4c82d85923c57f93c18aec63a5d2c365d3b213ae9fa56f5693ab960b6",
+      "bytes": 44123
+    },
+    {
+      "file": "pre_metar_buckets.csv",
+      "sha256": "17e049c45ed3c4812cf7dd2c127a7943ac35f329177b247d557e6b1e2d366838",
+      "bytes": 96909
+    },
+    {
+      "file": "pre_metar_q_scores.csv",
+      "sha256": "4ee7d7f47f1cdefef414d59b3dc782f39e71b3bcca60e752daad53acf3eeead4",
+      "bytes": 29836
+    },
+    {
+      "file": "proxy_city_day_scores.csv",
+      "sha256": "837904fa780576353049decd61a443aa59a0917518bece10c115caf45fe842fb",
+      "bytes": 13289
+    },
+    {
+      "file": "proxy_one_day_buckets.csv",
+      "sha256": "ae2aec922fe7cb6a95a5a4671a47d549f20f18be0bd3d2aa318013261483ec59",
+      "bytes": 11106
+    }
+  ],
+  "transformations": {
+    "daily_sensor_features": "Original selected _nearest/_val_at/_slope/build_rows functions applied to fixed March12-June11 2026 cache files and local date window; UTC offsets +3/-5/+1; city labels replace PWS IDs. Endpoint features unchanged. Stored values are real derived observations, not synthetic.",
+    "proxy_city_day_scores": "Full 52,918 archived rows -> quoted-support eligibility and normalized Brier -> per-city-day count, model score sum, market score sum. Output 177 city-days / 5,104 snapshots.",
+    "proxy_one_day_buckets": "All rows of lexicographically first matched city-day, selected columns.",
+    "journal_buckets": "All 432 archived rows retained, selected nonoperational columns.",
+    "pre_metar_buckets": "All 604 archived rows retained with event and stored residual, selected nonoperational columns.",
+    "pre_metar_q_scores": "All 167 archived event score rows, selected columns. These are already-computed scores, not full distributions.",
+    "market_fits": "Selected score/parameter/top-five fields from 28 fit files. Missing optional pws_dead flags represented null, not inferred false.",
+    "historical_replay_summaries": "Selected archived summaries excluding day_audit and local out_dir parameter; no metrics recomputed within this file."
+  },
+  "published_hash_basis": "SHA-256 of exact LF bytes; source hashes are raw original source bytes"
+}

@@ -1,5 +1,5 @@
 {
-  "reviewed_on": "2026-09-13",
+  "reviewed_on": "2026-09-14",
   "records": [
     {
       "id": "collector-noaa",
@@ -48,6 +48,72 @@
       "sha256": "37008cda7b6fc0aef8f48cf20f59bfd64ccb886fdbc8c6a391be131853b3a2ae",
       "last_change_commit": "5241c850439ccd7fc07a9c0f321ec6ee96494015",
       "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "weather-scalar-model",
+      "sha256": "f18fb3a2cbf9fd8000ffe4333a86fb3b4f21c3caea8d80a920a6ac090ace8035",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "weather-legacy-model",
+      "sha256": "05af588247b045fce47b7972d87eef42241ba8ffbe0111227468cc3e3b72f080",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "weather-forecast-provider",
+      "sha256": "5e1e4a82ef861ceb3261e035fae85470f1836f239f6d397df2e4a9959a3ef9eb",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "weather-ensemble-prototype",
+      "sha256": "08031c78713f0551464ef4ff368051e9629482dbc7d4736d97e0b91af39a9f2a",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "weather-model-design",
+      "sha256": "efc3941409319c59b8df89b3cd3e62feadc99a53cbfee1b06242765d3e60b1f7",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "W-DECISION-MDP",
+      "sha256": "11e7843b216387e9e3286f5b24263a7602defc2b8124eb321a8c3dcf8b2d0d2d",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "W-DECISION-REACTION",
+      "sha256": "33712eeeb7834f4df83dd69e31ce07aeeeab9db70b4eb94902f0e39833439630",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "W-DECISION-EXIT",
+      "sha256": "278f0b3e15218fb2089e067ca3e5259f3492bfd4690e35dd68f204afbfa45039",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "W-DECISION-PLAYBOOK",
+      "sha256": "82dfb64a44d051dd22104b421d26d52b817db36a37a839b9a400640b3cfe4b0d",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "W-DECISION-BRAIN",
+      "sha256": "47c80e082a983b9a39cf59611a8e7940a73953e8dfea612f33a3adfc83f69bd1",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
+    },
+    {
+      "id": "W-STRATEGY-RULES",
+      "sha256": "a5ef8fbf73f9686e7b12c539316588b92fcd6959ad9cf9499544b766e8e2244e",
+      "reviewed_on": "2026-09-14",
+      "availability": "private historical source; public extraction or explanation linked in model/decision docs"
     }
   ]
 }

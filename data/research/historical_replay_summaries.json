@@ -1,0 +1,556 @@
+{
+  "source_substituted": {
+    "generated_at": "2026-08-11T16:20:31.276526+00:00",
+    "label": "ECMWF IFS source-substituted, as-issued-run replay",
+    "parameters": {
+      "cities": [
+        "wellington",
+        "istanbul"
+      ],
+      "start_date": "2026-05-12",
+      "end_date": "2026-08-11",
+      "snapshot_minutes": 30,
+      "horizons": [
+        30,
+        60,
+        120
+      ],
+      "paths": 2000,
+      "bootstrap_reps": 1000
+    },
+    "coverage": {
+      "city_days_requested": 184,
+      "city_days_matched": 178,
+      "base_records": 52918,
+      "forward_records": 145066,
+      "forecast_run_files": 344
+    },
+    "martingale": [
+      {
+        "model": "ecmwf_proxy_kalman",
+        "horizon_min": 30,
+        "n": 50863,
+        "clusters": 178,
+        "edge_mean": -0.0011052140062520898,
+        "edge_median": -0.0005,
+        "market_move_mean": -8.907260680651936e-05,
+        "market_move_median": 0.0,
+        "model_move_mean": 2.2774150189401195e-20,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          -5.030087141438052e-20,
+          4.418667203031277e-20
+        ],
+        "edge_to_market_move_slope": 0.047393029322857404,
+        "slope_ci95_cluster_bootstrap": [
+          0.02962821959880855,
+          0.06583613515238355
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.0,
+        "edge_market_move_correlation": 0.09355852761084484
+      },
+      {
+        "model": "ecmwf_proxy_kalman",
+        "horizon_min": 60,
+        "n": 48965,
+        "clusters": 178,
+        "edge_mean": -0.0011335852139283168,
+        "edge_median": -0.0005,
+        "market_move_mean": -0.00017418564280608577,
+        "market_move_median": 0.0,
+        "model_move_mean": 5.659595124829877e-20,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          -5.6467316214334906e-21,
+          1.4980452140695735e-19
+        ],
+        "edge_to_market_move_slope": 0.06667386394551476,
+        "slope_ci95_cluster_bootstrap": [
+          0.03633428290407782,
+          0.10026003830673277
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.0,
+        "edge_market_move_correlation": 0.09519559603139198
+      },
+      {
+        "model": "ecmwf_proxy_kalman",
+        "horizon_min": 120,
+        "n": 45238,
+        "clusters": 178,
+        "edge_mean": -0.0012943874618683412,
+        "edge_median": -0.0005,
+        "market_move_mean": -0.00013679870904991336,
+        "market_move_median": 0.0,
+        "model_move_mean": 0.0003049206419381937,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          0.00011619612178582364,
+          0.0005784402625349734
+        ],
+        "edge_to_market_move_slope": 0.08807912768248602,
+        "slope_ci95_cluster_bootstrap": [
+          0.03610320447318267,
+          0.14484561665448348
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.0,
+        "edge_market_move_correlation": 0.09030844787779607
+      }
+    ],
+    "outcome_scores": [
+      {
+        "model": "ecmwf_proxy_kalman",
+        "n_snapshots": 5104,
+        "clusters": 177,
+        "model_brier_mean": 0.33434783454153605,
+        "model_brier_median": 0.2129275,
+        "market_brier_mean": 0.2764138318931878,
+        "market_brier_median": 0.1013082053670904,
+        "model_minus_market_brier_mean": 0.05793400264834825,
+        "model_minus_market_brier_median": 0.0,
+        "difference_ci95_cluster_bootstrap": [
+          0.03316177101673569,
+          0.08245213670556271
+        ],
+        "bootstrap_probability_difference_nonpositive": 0.0,
+        "note": "Scores are conditional on quoted buckets; both distributions are renormalized."
+      }
+    ],
+    "limitations": [
+      "Forecast source is ECMWF IFS, not production Wunderground/Meteoblue.",
+      "Polymarket prices-history contains marks, not historical order books or executable spreads.",
+      "METAR availability is approximated as valid time + 5 minutes; PWS as observation time + 1 minute.",
+      "PWS enters only after a causal health gate observes >=50 rows, >=5 unique temperatures, and >=0.5 unit range.",
+      "Outcome scores use the resolved Polymarket YES token, not a METAR-derived proxy outcome."
+    ]
+  },
+  "production_journal": {
+    "generated_at": "2026-08-11T16:55:33.682830+00:00",
+    "parameters": {
+      "cities": [
+        "wellington",
+        "istanbul"
+      ],
+      "dates": [],
+      "sources": [
+        "recorded",
+        "kalman"
+      ],
+      "sample_minutes": 5,
+      "horizons": [
+        15,
+        30,
+        60
+      ],
+      "max_spread": 0.2,
+      "quote_tolerance_s": 5.0,
+      "paths": 5000,
+      "bootstrap_reps": 1000
+    },
+    "coverage": {
+      "city_days_discovered": 30,
+      "city_days_matched": 18,
+      "base_records": 432,
+      "forward_records": 294
+    },
+    "martingale": [
+      {
+        "model": "recorded_legacy",
+        "horizon_min": 15,
+        "n": 56,
+        "clusters": 4,
+        "edge_mean": -0.024242857142857132,
+        "edge_median": -0.0035499999999999967,
+        "market_move_mean": 0.0033928571428571415,
+        "market_move_median": 0.0,
+        "model_move_mean": 0.011242857142857134,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          -2.599921216946144e-17,
+          0.03201355932203389
+        ],
+        "edge_to_market_move_slope": -0.02211196305519952,
+        "slope_ci95_cluster_bootstrap": [
+          -0.2404695520974143,
+          0.014924396493405937
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.682,
+        "edge_market_move_correlation": -0.14119893145572604
+      },
+      {
+        "model": "recorded_legacy",
+        "horizon_min": 30,
+        "n": 51,
+        "clusters": 4,
+        "edge_mean": -0.05965098039215687,
+        "edge_median": -0.004,
+        "market_move_mean": -0.0004705882352941148,
+        "market_move_median": -0.001,
+        "model_move_mean": 1.1764705882359896e-05,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          4.191716928624105e-18,
+          0.00010588235294117746
+        ],
+        "edge_to_market_move_slope": 0.02778099984841842,
+        "slope_ci95_cluster_bootstrap": [
+          -0.04308277836374362,
+          0.6772228885697749
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.087,
+        "edge_market_move_correlation": 0.13654735005327118
+      },
+      {
+        "model": "recorded_legacy",
+        "horizon_min": 60,
+        "n": 40,
+        "clusters": 3,
+        "edge_mean": -0.025307499999999993,
+        "edge_median": -0.007900000000000003,
+        "market_move_mean": 0.0232375,
+        "market_move_median": 0.0,
+        "model_move_mean": 0.014967499999999998,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          -1.4253644560942765e-17,
+          0.028509523809523818
+        ],
+        "edge_to_market_move_slope": 0.08432468689832974,
+        "slope_ci95_cluster_bootstrap": [
+          0.008523358356441472,
+          0.8430063823124389
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.0,
+        "edge_market_move_correlation": 0.12711880380155674
+      },
+      {
+        "model": "replay_kalman",
+        "horizon_min": 15,
+        "n": 56,
+        "clusters": 4,
+        "edge_mean": -0.0018821428571428568,
+        "edge_median": -0.0020000000000000005,
+        "market_move_mean": 0.0033928571428571415,
+        "market_move_median": 0.0,
+        "model_move_mean": 0.006739285714285707,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          -2.3394744406963195e-17,
+          0.019189830508474573
+        ],
+        "edge_to_market_move_slope": -0.1500605869683528,
+        "slope_ci95_cluster_bootstrap": [
+          -0.27850388612856314,
+          0.0031318520331285724
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.962,
+        "edge_market_move_correlation": -0.3727024131749259
+      },
+      {
+        "model": "replay_kalman",
+        "horizon_min": 30,
+        "n": 51,
+        "clusters": 4,
+        "edge_mean": -0.0009470588235294049,
+        "edge_median": -0.0025000000000000005,
+        "market_move_mean": -0.0004705882352941148,
+        "market_move_median": -0.001,
+        "model_move_mean": -0.00015686274509804106,
+        "model_move_median": 0.0,
+        "model_move_mean_ci95": [
+          -0.0014139705882352926,
+          4.453732453639575e-20
+        ],
+        "edge_to_market_move_slope": 0.02803976483786123,
+        "slope_ci95_cluster_bootstrap": [
+          -0.2399270326078324,
+          0.21729271415790313
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.447,
+        "edge_market_move_correlation": 0.039845830626366104
+      },
+      {
+        "model": "replay_kalman",
+        "horizon_min": 60,
+        "n": 40,
+        "clusters": 3,
+        "edge_mean": 0.011954999999999995,
+        "edge_median": -0.002250000000000002,
+        "market_move_mean": 0.0232375,
+        "market_move_median": 0.0,
+        "model_move_mean": 0.009010000000000004,
+        "model_move_median": -0.0002,
+        "model_move_mean_ci95": [
+          -2.8478377063952582e-18,
+          0.017161904761904767
+        ],
+        "edge_to_market_move_slope": 1.1095828052010925,
+        "slope_ci95_cluster_bootstrap": [
+          0.8833980130686324,
+          1.2878599449084718
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.0,
+        "edge_market_move_correlation": 0.5033050631043606
+      }
+    ],
+    "outcome_scores": [
+      {
+        "model": "recorded_legacy",
+        "n_snapshots": 38,
+        "clusters": 16,
+        "model_brier_mean": 0.3883217436039247,
+        "model_brier_median": 0.24313892000000004,
+        "market_brier_mean": 0.2257980772527334,
+        "market_brier_median": 0.11997739933114238,
+        "model_minus_market_brier_mean": 0.16252366635119125,
+        "model_minus_market_brier_median": 0.04293119311336527,
+        "difference_ci95_cluster_bootstrap": [
+          0.05005657577054569,
+          0.3650483190511621
+        ],
+        "bootstrap_probability_difference_nonpositive": 0.002,
+        "note": "Scores are conditional on quoted buckets; both distributions are renormalized."
+      },
+      {
+        "model": "replay_kalman",
+        "n_snapshots": 43,
+        "clusters": 16,
+        "model_brier_mean": 0.27629567248834963,
+        "model_brier_median": 0.27649991999999995,
+        "market_brier_mean": 0.1995804414086796,
+        "market_brier_median": 0.08904017296923661,
+        "model_minus_market_brier_mean": 0.0767152310796701,
+        "model_minus_market_brier_median": 0.014677036878524643,
+        "difference_ci95_cluster_bootstrap": [
+          -0.004257831224160056,
+          0.1814872825169517
+        ],
+        "bootstrap_probability_difference_nonpositive": 0.033,
+        "note": "Scores are conditional on quoted buckets; both distributions are renormalized."
+      }
+    ]
+  },
+  "pre_metar": {
+    "generated_at": "2026-08-11T17:40:53.112098+00:00",
+    "parameters": {
+      "cities": null,
+      "embargo_seconds": 30.0,
+      "max_state_age_seconds": 600.0,
+      "max_book_age_seconds": 120.0,
+      "eta_tolerance_minutes": 3.0,
+      "reaction_horizons": [
+        5,
+        10,
+        15
+      ],
+      "max_spread": 0.15,
+      "max_consistency_residual": 0.1,
+      "bootstrap_reps": 1000
+    },
+    "coverage": {
+      "q_events": 167,
+      "q_city_days": 38,
+      "q_cities": 11,
+      "fair_bucket_rows": 604,
+      "fair_events": 156,
+      "fair_city_days": 36,
+      "consistent_fair_events": 89,
+      "consistent_fair_city_days": 26,
+      "reaction_rows": 1624
+    },
+    "audit": {
+      "events_without_pre_state": 71,
+      "city_days_without_resolved_market": 16,
+      "events_without_pre_book": 11,
+      "fahrenheit_city_days_excluded": 6
+    },
+    "q_next_scores": [
+      {
+        "subset": "all",
+        "model": "recorded_kalman",
+        "n_events": 1,
+        "clusters": 1,
+        "changed_events": 1,
+        "unchanged_events": 0,
+        "q_actual_mean": 0.0,
+        "q_actual_median": 0.0,
+        "q_brier_mean": 1.9215132533546355,
+        "q_brier_median": 1.9215132533546355,
+        "q_log_loss_mean": 27.631021115928547,
+        "q_log_loss_median": 27.631021115928547,
+        "q_top_accuracy": 0.0,
+        "persistence_brier_mean": 2.0,
+        "persistence_brier_median": 2.0,
+        "q_minus_persistence_brier_mean": -0.07848674664536448,
+        "q_minus_persistence_brier_median": -0.07848674664536448,
+        "difference_ci95_cluster_bootstrap": [
+          null,
+          null
+        ],
+        "bootstrap_probability_difference_nonpositive": null,
+        "note": "Persistence is a deterministic diagnostic baseline, not a market-implied Q_next."
+      },
+      {
+        "subset": "all",
+        "model": "recorded_legacy",
+        "n_events": 166,
+        "clusters": 37,
+        "changed_events": 63,
+        "unchanged_events": 103,
+        "q_actual_mean": 0.5103847492461647,
+        "q_actual_median": 0.6367013493078436,
+        "q_brier_mean": 0.5363459747562878,
+        "q_brier_median": 0.20658343251882896,
+        "q_log_loss_mean": 1.1835670949537807,
+        "q_log_loss_median": 0.45145457274066536,
+        "q_top_accuracy": 0.6144578313253012,
+        "persistence_brier_mean": 0.7590361445783133,
+        "persistence_brier_median": 0.0,
+        "q_minus_persistence_brier_mean": -0.22269016982202552,
+        "q_minus_persistence_brier_median": 0.0605392903778245,
+        "difference_ci95_cluster_bootstrap": [
+          -0.37950297622268536,
+          -0.06974489053080617
+        ],
+        "bootstrap_probability_difference_nonpositive": 0.998,
+        "note": "Persistence is a deterministic diagnostic baseline, not a market-implied Q_next."
+      },
+      {
+        "subset": "pws_live",
+        "model": "recorded_kalman",
+        "n_events": 1,
+        "clusters": 1,
+        "changed_events": 1,
+        "unchanged_events": 0,
+        "q_actual_mean": 0.0,
+        "q_actual_median": 0.0,
+        "q_brier_mean": 1.9215132533546355,
+        "q_brier_median": 1.9215132533546355,
+        "q_log_loss_mean": 27.631021115928547,
+        "q_log_loss_median": 27.631021115928547,
+        "q_top_accuracy": 0.0,
+        "persistence_brier_mean": 2.0,
+        "persistence_brier_median": 2.0,
+        "q_minus_persistence_brier_mean": -0.07848674664536448,
+        "q_minus_persistence_brier_median": -0.07848674664536448,
+        "difference_ci95_cluster_bootstrap": [
+          null,
+          null
+        ],
+        "bootstrap_probability_difference_nonpositive": null,
+        "note": "Persistence is a deterministic diagnostic baseline, not a market-implied Q_next."
+      },
+      {
+        "subset": "pws_live",
+        "model": "recorded_legacy",
+        "n_events": 115,
+        "clusters": 30,
+        "changed_events": 40,
+        "unchanged_events": 75,
+        "q_actual_mean": 0.5541059745828644,
+        "q_actual_median": 0.6830094366342584,
+        "q_brier_mean": 0.49076023707129585,
+        "q_brier_median": 0.18086280091532234,
+        "q_log_loss_mean": 1.1044055094979088,
+        "q_log_loss_median": 0.3812466030583915,
+        "q_top_accuracy": 0.6521739130434783,
+        "persistence_brier_mean": 0.6956521739130435,
+        "persistence_brier_median": 0.0,
+        "q_minus_persistence_brier_mean": -0.2048919368417477,
+        "q_minus_persistence_brier_median": 0.056634676426683475,
+        "difference_ci95_cluster_bootstrap": [
+          -0.4164967474600698,
+          -0.025888433601273794
+        ],
+        "bootstrap_probability_difference_nonpositive": 0.985,
+        "note": "Persistence is a deterministic diagnostic baseline, not a market-implied Q_next."
+      }
+    ],
+    "pre_metar_fair_scores": [
+      {
+        "model": "recorded_legacy",
+        "n_snapshots": 126,
+        "clusters": 33,
+        "model_brier_mean": 0.3067378314568884,
+        "model_brier_median": 0.029745400000000005,
+        "market_brier_mean": 0.24426030185241032,
+        "market_brier_median": 0.10818046813519247,
+        "model_minus_market_brier_mean": 0.062477529604478055,
+        "model_minus_market_brier_median": -0.0022636816887296077,
+        "difference_ci95_cluster_bootstrap": [
+          -0.04279948367895259,
+          0.17136280111764657
+        ],
+        "bootstrap_probability_difference_nonpositive": 0.116,
+        "note": "Scores are conditional on quoted buckets; both distributions are renormalized."
+      }
+    ],
+    "pre_metar_fair_scores_consistent_states": [
+      {
+        "model": "recorded_legacy",
+        "n_snapshots": 77,
+        "clusters": 26,
+        "model_brier_mean": 0.2973713347875906,
+        "model_brier_median": 0.020977875365294305,
+        "market_brier_mean": 0.22778408761067753,
+        "market_brier_median": 0.06684801863670556,
+        "model_minus_market_brier_mean": 0.0695872471769131,
+        "model_minus_market_brier_median": -0.0010216864921866215,
+        "difference_ci95_cluster_bootstrap": [
+          -0.01017559360558593,
+          0.16698918954500672
+        ],
+        "bootstrap_probability_difference_nonpositive": 0.048,
+        "note": "Scores are conditional on quoted buckets; both distributions are renormalized."
+      }
+    ],
+    "post_metar_reaction": [
+      {
+        "model": "recorded_legacy",
+        "horizon_min_after_valid_time": 5,
+        "n": 563,
+        "clusters": 35,
+        "edge_to_market_move_slope": 0.016262340265753513,
+        "slope_ci95_cluster_bootstrap": [
+          -0.022150414912069247,
+          0.0784377573309281
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.235,
+        "edge_market_move_correlation": 0.04101992623478812
+      },
+      {
+        "model": "recorded_legacy",
+        "horizon_min_after_valid_time": 10,
+        "n": 541,
+        "clusters": 35,
+        "edge_to_market_move_slope": 0.029407423819124704,
+        "slope_ci95_cluster_bootstrap": [
+          -0.03473043566372368,
+          0.1281185906743701
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.193,
+        "edge_market_move_correlation": 0.061988634989082324
+      },
+      {
+        "model": "recorded_legacy",
+        "horizon_min_after_valid_time": 15,
+        "n": 520,
+        "clusters": 32,
+        "edge_to_market_move_slope": 0.06475694856423518,
+        "slope_ci95_cluster_bootstrap": [
+          -0.01619331612947294,
+          0.19000378347620167
+        ],
+        "bootstrap_probability_slope_nonpositive": 0.065,
+        "edge_market_move_correlation": 0.1293411525291556
+      }
+    ],
+    "interpretation_guardrails": [
+      "Q_next has no directly traded Polymarket counterpart; persistence is only a diagnostic baseline.",
+      "P_now versus market Brier is the direct like-for-like fair-value comparison.",
+      "Most eligible journal events were produced by the legacy engine, not the calibrated Kalman engine.",
+      "Fahrenheit markets are excluded because the historical unit chain is not deployment-verified.",
+      "Bootstrap clusters are city-days, not bucket rows or individual METAR events.",
+      "The consistency-residual threshold is reported as a sensitivity analysis because legacy P_now can violate the Q_next/D_after invariant."
+    ]
+  }
+}

@@ -21,21 +21,21 @@ flowchart LR
 | Layer | Question | Public material currently available |
 |---|---|---|
 | Observations | What was measured, and when could the system know it? | [Clocks](observations.md), [parser/scheduling implementation](acquisition-implementation.md), synthetic examples |
-| Probability models | How does an observation change temperature and maximum-temperature probabilities? | [Model overview](model.md), [model code](../kalman_engine.py), [recorded replay](../replay.py) |
-| Sensor information and calibration | Which inputs and parameters improve a specified predictive task? | [Study summaries and evaluation scope](calibration.md); original wider pipelines are not yet included |
-| Strategies and decisions | What happens when a bucket becomes impossible, or a future observation changes fair value? | [Bucket-repricing study summary](market-events.md); fuller EV/decision implementations are not yet included |
+| Probability models | How does an observation change temperature and maximum-temperature probabilities? | [Model and versions](model.md), [derivation and source map](model-derivation.md), [model code](../kalman_engine.py), [recorded replay](../replay.py) |
+| Sensor information and calibration | Which inputs and parameters improve a specified predictive task? | [Feature design and calibration](calibration.md), [experiment records](experiments.md), [runnable score audit](../examples/research_audit.py) |
+| Strategies and decisions | What happens when a bucket becomes impossible, or a future observation changes fair value? | [Strategies and payoff equations](strategies.md), [decision implementation](decision-implementation.md), [model-to-decision example](../examples/decision_walkthrough.py) |
 | Execution engineering | Which work can be completed before the observation-triggered action? | [System architecture](system-architecture.md), [cache/pre-sign design](execution-engineering.md), offline code and [timing case](../benchmarks/README.md) |
 
-The engineering chapter has the deepest public documentation in this revision. It is one layer of
-the research, rather than a replacement for the model and strategy work. A module's presence in the
-historical programme does not mean every version was wired into autonomous execution.
+The model, empirical and decision chapters complement the acquisition and execution components.
+The public package retains distinctions between deployed collectors, offline inference/calibration,
+and decision research. A module's presence does not mean every version drove autonomous execution.
 
 ## Choose a starting point
 
-- **Quantitative research:** run the recorded replay, inspect the probability model, then read the
-  calibration and event-study scope.
-- **Trading:** follow the information/decision chain and the bucket-repricing question, then examine
-  preparation and submission assumptions.
+- **Quantitative research:** inspect the filter and conditional-distribution equations, run the recorded
+  replay, then audit the paired research scores and read the feature-study design.
+- **Trading:** follow the model-to-decision example into scenario payoffs, risk penalties and conditional
+  actions; compare deterministic bucket rules, then inspect preparation and submission.
 - **Research engineering:** read the system architecture and run the acquisition and execution examples.
 
 [CONTRIBUTIONS.md](../CONTRIBUTIONS.md) links specific work to code and evidence.

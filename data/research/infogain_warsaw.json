@@ -1,0 +1,88 @@
+{
+  "city": "warsaw",
+  "icao": "EPWA",
+  "days": 92,
+  "hours": [
+    8,
+    10,
+    12,
+    14,
+    16,
+    18
+  ],
+  "paths": 1500,
+  "bridge": false,
+  "theta_without": {
+    "beta_h": 0.25,
+    "sigma_proc_h": 1.4,
+    "sigma_metar": 0.29
+  },
+  "theta_with": {
+    "beta_h": 0.25,
+    "sigma_proc_h": 1.4,
+    "sigma_pws": 0.5,
+    "b_pws": 0.3
+  },
+  "by_hour": {
+    "8": {
+      "n": 92,
+      "rps_without": 0.06579058983965573,
+      "rps_with": 0.0651239006668184,
+      "brier_without": 0.7749524444444443,
+      "brier_with": 0.7734831594202897,
+      "entropy_without": 1.923092376894202,
+      "entropy_with": 1.9196801638037235,
+      "pct_locked": 3.260869565217391
+    },
+    "10": {
+      "n": 92,
+      "rps_without": 0.06694830510643414,
+      "rps_with": 0.06535048699289168,
+      "brier_without": 0.7719980966183573,
+      "brier_with": 0.7703260096618361,
+      "entropy_without": 1.9020083789204878,
+      "entropy_with": 1.8995276516561541,
+      "pct_locked": 3.260869565217391
+    },
+    "12": {
+      "n": 92,
+      "rps_without": 0.07800488482296015,
+      "rps_with": 0.06910874274894456,
+      "brier_without": 0.7667452463768112,
+      "brier_with": 0.7459324830917874,
+      "entropy_without": 1.8171013624941297,
+      "entropy_with": 1.7943949893153193,
+      "pct_locked": 9.782608695652174
+    },
+    "14": {
+      "n": 92,
+      "rps_without": 0.08890429625481869,
+      "rps_with": 0.06705585003938629,
+      "brier_without": 0.7147120000000002,
+      "brier_with": 0.6486908212560386,
+      "entropy_without": 1.6329557991659747,
+      "entropy_with": 1.5585211458284394,
+      "pct_locked": 33.69565217391305
+    },
+    "16": {
+      "n": 92,
+      "rps_without": 0.07351059375187347,
+      "rps_with": 0.05108482535377933,
+      "brier_without": 0.5401486086956522,
+      "brier_with": 0.42988960386473446,
+      "entropy_without": 1.3872385559598504,
+      "entropy_with": 1.252152455815827,
+      "pct_locked": 71.73913043478261
+    },
+    "18": {
+      "n": 92,
+      "rps_without": 0.039517961553945255,
+      "rps_with": 0.024735138221762147,
+      "brier_without": 0.2421509468599034,
+      "brier_with": 0.159554115942029,
+      "entropy_without": 0.934346321862469,
+      "entropy_with": 0.7602222938662446,
+      "pct_locked": 100.0
+    }
+  }
+}

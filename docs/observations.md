@@ -22,6 +22,13 @@ Using a revised forecast before it was available would introduce lookahead.
 The existing Istanbul replay retains these input formats. The new acquisition example is a separate,
 explicit normalization exercise; it does not silently rewrite the recorded model inputs.
 
+Arrival ordering governs when a record becomes available at each replay-grid step. Within a refresh,
+the historical model ingests PWS first and METAR second, each sorted within its source. A delayed report
+updates the current posterior without rolling the state back to the report's observation time. This is
+an approximation to delayed-observation filtering, not a globally chronological assimilation engine.
+The model also deduplicates METARs by observation time; the acquisition ledger's correction support
+does not imply that same-time revisions are assimilated by the model.
+
 ## Two sources, one observation
 
 NOAA provides station text containing the raw METAR. MGM provides JSON with a METAR and other sensor

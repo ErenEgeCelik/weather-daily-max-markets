@@ -2,8 +2,8 @@
 KalmanWeatherModel — Bayesian state estimator for temperature prediction markets.
 
 Adapted for offline replay from the inference research for Polymarket's
-daily maximum-temperature markets (see github.com/ErenEgeCelik/prediction-market-research,
-"Weather Markets: A Succession of Edges"). The live network pollers are removed;
+daily maximum-temperature markets. Source lineage and publication corrections
+are recorded in docs/model-derivation.md. The live network pollers are removed;
 observations are injected by the replay driver and a replay clock replaces wall time.
 Deployment and calibration versions are documented separately in docs/.
 
@@ -263,7 +263,7 @@ class KalmanWeatherModel:
         if fc is not None and self.beta_h > 0:
             pull = self.beta_h * dt_h
             self._T_mean = (1 - pull) * self._T_mean + pull * fc
-        if self.beta_h > 0:
+        if fc is not None and self.beta_h > 0:
             decay = (1 - self.beta_h * dt_h) ** 2
             self._T_var = max(1e-6, self._T_var * decay + (self.sigma_process_h ** 2) * dt_h)
         else:
@@ -423,9 +423,11 @@ class KalmanWeatherModel:
             return {}
         target = self._now() + timedelta(minutes=self._next_metar_eta_min())
         saved = (self._T_mean, self._T_var, self._last_update_time)
-        self._process_advance(target)
-        mu, sigma = self._T_mean, math.sqrt(self._T_var)
-        self._T_mean, self._T_var, self._last_update_time = saved
+        try:
+            self._process_advance(target)
+            mu, sigma = self._T_mean, math.sqrt(self._T_var)
+        finally:
+            self._T_mean, self._T_var, self._last_update_time = saved
         return gaussian_round_pmf(mu, sigma, (int(math.floor(mu - 4 * sigma)),
                                               int(math.ceil(mu + 4 * sigma))))
 
@@ -434,20 +436,31 @@ class KalmanWeatherModel:
         rerun the Monte Carlo, restore state."""
         if self._T_mean is None:
             return {}
-        saved = (self._T_mean, self._T_var, self._last_update_time)
+        saved = (self._T_mean, self._T_var, self._last_update_time,
+                 self._last_update_kind, self._replay_now)
+        observed_now = self._now()
         target = self._now() + timedelta(minutes=self._next_metar_eta_min())
-        self._process_advance(target)
-        self._observation_update(float(m), self.sigma_metar ** 2, kind="metar_hypothetical")
-        d0, d1 = self._day_window()
-        today = [v for t, v in self._metars if d0 <= t <= d1 and t <= self._now()]
-        M_cur = max(today, default=None)
-        M_floor = max(M_cur, m) if M_cur is not None else m
-        dist = self._daily_max_distribution(M_floor)
-        self._T_mean, self._T_var, self._last_update_time = saved
-        return dist
+        try:
+            self._process_advance(target)
+            self._observation_update(float(m), self.sigma_metar ** 2, kind="metar_hypothetical")
+            d0, d1 = self._day_window()
+            today = [v for t, v in self._metars if d0 <= t <= d1 and t <= observed_now]
+            M_cur = max(today, default=None)
+            M_floor = max(M_cur, m) if M_cur is not None else m
+            # The posterior is now conditional at the future report time. Start
+            # remaining paths there, while retaining only currently known reports.
+            self._replay_now = target
+            return self._daily_max_distribution(M_floor)
+        finally:
+            (self._T_mean, self._T_var, self._last_update_time,
+             self._last_update_kind, self._replay_now) = saved
 
     def consistency_residual(self) -> float:
-        """max_k | sum_m Q(m) * D_after(k|m) - P_now(k) | — should be ~MC noise."""
+        """max_k |sum_m Q(m) D_after(k|m) - P_now(k)|.
+
+        This diagnoses both construction differences and sampling error; the
+        implementation does not guarantee a Monte-Carlo-noise-only residual.
+        """
         snap = self.snapshot()
         if not snap.Q_next:
             return 0.0

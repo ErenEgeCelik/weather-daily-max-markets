@@ -3,9 +3,10 @@ Replay the Kalman probability engine over a real recorded trading day.
 
 Reads the raw observation journals recorded by the production system (private
 weather station readings, METAR observations, forecast revisions), feeds them
-to the engine in strict arrival order — each record carries the timestamp at
-which the live system actually received it — and tracks how the posterior and
-the daily-maximum distribution P_now evolve through the afternoon.
+to the engine at replay-grid times, admitting only records received by then,
+and tracks how the posterior and daily-maximum distribution P_now evolve.
+The engine refresh processes PWS before METAR within each batch; sorting the
+arrival stream does not make this a globally event-time-ordered filter.
 
 Usage:
     python replay.py                       # istanbul 2026-06-11, 5-minute steps
@@ -67,7 +68,8 @@ def main() -> None:
     fc_rows = load_jsonl(data / "forecast_raw.jsonl")
 
     # Build the arrival-ordered event stream. `ts` is the moment the live system
-    # received the record — replaying on `ts` reproduces what the engine knew, when.
+    # received the record. Admission is arrival-causal at the chosen grid; source
+    # batching inside refresh is retained from the historical model.
     events: list[tuple[datetime, str, dict]] = []
     events += [(parse_ts(r["ts"]), "pws", r) for r in pws_rows]
     events += [(parse_ts(r["ts"]), "metar", r) for r in metar_rows]
