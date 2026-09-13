@@ -1,14 +1,44 @@
-# Observations, clocks and system scope
+# Observations and clocks
 
-`ts` is the arrival timestamp used to order replay events. PWS `obs_time_utc` and METAR `valid_utc`
-are observation timestamps; they are not interchangeable with arrival time. Forecast records contain
-curve timestamps and temperatures known at their arrival. Replaying final revised forecasts earlier
-than they were available would introduce lookahead.
+A useful weather event needs both its physical observation time and its availability to the process
+making a decision. These answer different questions: what was measured, and what could the system know?
 
-The broader programme included observation collection, execution instrumentation and model research.
-This package contains the offline inference example, not the order router. Publication of a model
-component does not imply every subsequent calibration or decision module ran in production.
+| Clock | Meaning | Use |
+|---|---|---|
+| Observation time | Time encoded by the station report | Identify and order physical observations |
+| Source publication time | Time the source made that observation available, when recorded | Separate publication delay from transport |
+| Local arrival time | Time this process received the event | Causal replay and decision availability |
+| Monotonic request timestamps | Start/end from one process's monotonic clock | Duration measurement without wall-clock adjustments |
 
-Historical source-timing prose contains inconsistent headline lead figures. No numeric latency
-advantage is claimed here without paired source timestamps. METAR serves as a model observation;
-the contractual settlement source is market-specific.
+Wall-clock differences between machines require clock alignment. A timestamp in a weather report is
+not proof of when an endpoint first published it. End-to-end latency needs matched records across the path.
+
+## The recorded probability replay
+
+In the original journals, `ts` orders events by arrival. PWS `obs_time_utc` and METAR `valid_utc` are
+observation timestamps. Forecast records contain curve timestamps and temperatures known at their arrival.
+Using a revised forecast before it was available would introduce lookahead.
+
+The existing Istanbul replay retains these input formats. The new acquisition example is a separate,
+explicit normalization exercise; it does not silently rewrite the recorded model inputs.
+
+## Two sources, one observation
+
+NOAA provides station text containing the raw METAR. MGM provides JSON with a METAR and other sensor
+fields. The historical trigger rules used the METAR temperature, not MGM's separate decimal temperature.
+The public parser retains that distinction.
+
+An observation may be delivered repeatedly or by both sources. Deduplication must consider station,
+observation time and report content. A corrected report can share a timestamp with an earlier report;
+the public correction policy and its differences from the historical collectors are documented in
+[acquisition implementation](acquisition-implementation.md).
+
+```bash
+python -B examples/acquisition_walkthrough.py
+```
+
+The fixture is synthetic. It illustrates parsing, multiple deliveries and clock interpretation rather
+than measuring a real information lead. Contractual settlement still depends on the individual market rule.
+
+See [system architecture](system-architecture.md) for the acquisition and relay paths and
+[measurement definitions](../benchmarks/README.md) for latency boundaries.

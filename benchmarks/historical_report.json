@@ -1,0 +1,27 @@
+{
+  "id": "W-LATENCY-REPORT-2026-05-08",
+  "evidence_status": "REPORTED_HISTORICAL_MEASUREMENT",
+  "source_record": "Archived execution-client engineering report, 2026-05-08",
+  "source_snapshot": "5241c850439ccd7fc07a9c0f321ec6ee96494015",
+  "raw_request_records_included": false,
+  "unit": "milliseconds",
+  "request_table": {
+    "reported_general_sample_count": 30,
+    "summary_statistic": "not explicitly labeled in the source table",
+    "rows": [
+      {"condition": "cold GET total", "turkey_local": 330, "ireland": 101, "virginia": 173},
+      {"condition": "warm GET", "turkey_local": 105, "ireland": 25, "virginia": 93},
+      {"condition": "warm unauthenticated POST rejected with 401", "turkey_local": 106, "ireland": 20, "virginia": null},
+      {"condition": "idle unauthenticated POST", "turkey_local": 215, "ireland": 33, "virginia": null, "script_branch_count": 10}
+    ]
+  },
+  "signed_request_case": {
+    "documented_paired_trials": 1,
+    "different_outcome_tokens": true,
+    "records": [
+      {"site": "turkey_local", "metadata_warmup_ms": 415, "signing_ms": 340, "post_response_ms": 134.9, "response_status": "delayed"},
+      {"site": "ireland", "metadata_warmup_ms": 44, "signing_ms": 67, "post_response_ms": 30.4, "response_status": "delayed"}
+    ],
+    "interpretation": "Single historical request comparison; not a fill measurement, repeated benchmark distribution or isolated causal estimate of geographic placement."
+  }
+}

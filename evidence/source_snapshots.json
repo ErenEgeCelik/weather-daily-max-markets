@@ -1,0 +1,53 @@
+{
+  "reviewed_on": "2026-09-13",
+  "records": [
+    {
+      "id": "collector-noaa",
+      "sha256": "c375a5ead3dbcf27780f21a0ad001856745f4079a1723456fa665dd1a042e6d5",
+      "last_change_commit": "15a80d2ae8595eeda0f32d4d3a54bf18214f7305",
+      "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "collector-mgm",
+      "sha256": "3a27f3ae568b7b07c7efc498f4331d9569d7768677af0bb28131801800c6ecdb",
+      "last_change_commit": "ef402178546999388a7e612f3e99d9fabc92dc40",
+      "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "consumer-noaa",
+      "sha256": "2802d9aa635ce439bb28681ba22cdf7d4140229448cf37025a9086cb4ca67b39",
+      "last_change_commit": "d908da3f0f2288c882a3a4384ce4b5aa021afa24",
+      "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "W-EXEC-V1",
+      "sha256": "16d393479bd919b4f951ce4b712a27e0e0d5296dcc6bd241db2ded47f07c4596",
+      "last_change_commit": "d3cd999ecc401fe0050c90263bdfc901069eccf6",
+      "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "W-EXEC-V2",
+      "sha256": "a1b8cdfa526ca8cc6f7bc77e46b3f0129d6ff9580ae96b94e502765f70fb8b59",
+      "last_change_commit": "3cb4629eee7ca2321def68a9278316f23e3213a5",
+      "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "W-EXEC-TRIGGER",
+      "sha256": "348d6ac4cb991569298f2dae09acd1fd664ef54eba065f515cb1f1a86086a15f",
+      "last_change_commit": "ef402178546999388a7e612f3e99d9fabc92dc40",
+      "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "W-LATENCY-PROBE",
+      "sha256": "5378d8e179d92ab6a5304c975c2b8d98f0d288847a2519b2b3b5daa50e71ddd1",
+      "last_change_commit": "5241c850439ccd7fc07a9c0f321ec6ee96494015",
+      "availability": "private historical source; public extraction linked in docs"
+    },
+    {
+      "id": "W-LATENCY-REPORT",
+      "sha256": "37008cda7b6fc0aef8f48cf20f59bfd64ccb886fdbc8c6a391be131853b3a2ae",
+      "last_change_commit": "5241c850439ccd7fc07a9c0f321ec6ee96494015",
+      "availability": "private historical source; public extraction linked in docs"
+    }
+  ]
+}

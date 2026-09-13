@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "claims": [
+    {
+      "id": "W-ENG-01",
+      "contribution": "Source-specific observation collection and delivery",
+      "status": "SOURCE_DERIVED_IMPLEMENTATION",
+      "method": "Persistent HTTP pool design, concurrent scheduling, official-report parsing and observation identity",
+      "implementation": "weather_research/acquisition.py",
+      "example": "examples/acquisition_walkthrough.py",
+      "evidence": "docs/acquisition-implementation.md",
+      "result": "Offline source completion, normalization and dedup behavior inspectable",
+      "reproduction_level": "synthetic component example",
+      "deployment_status": "historical sources; public extraction is offline",
+      "source_ids": [
+        "collector-noaa",
+        "collector-mgm",
+        "consumer-noaa"
+      ]
+    },
+    {
+      "id": "W-ENG-02",
+      "contribution": "Order preparation separated from submission",
+      "status": "SOURCE_DERIVED_IMPLEMENTATION",
+      "method": "Metadata caches, parallel preparation and pre-signing",
+      "implementation": "weather_research/execution.py",
+      "example": "examples/execution_walkthrough.py",
+      "evidence": "docs/execution-implementation.md",
+      "result": "Public prepared FIRE makes one transport call with zero provider reads or signing calls",
+      "units": "calls in the offline example",
+      "reproduction_level": "synthetic component example",
+      "deployment_status": "historical wrappers; public extraction is offline",
+      "source_ids": [
+        "W-EXEC-V1",
+        "W-EXEC-V2",
+        "W-EXEC-TRIGGER"
+      ]
+    },
+    {
+      "id": "W-ENG-03",
+      "contribution": "Instrumented connection and request latency",
+      "status": "REPORTED_HISTORICAL_MEASUREMENT",
+      "method": "DNS/TCP/TLS/first-byte/body timing; archived cross-region comparisons",
+      "implementation": "benchmarks/connection_probe.py",
+      "evidence": "benchmarks/historical_report.json",
+      "documentation": "benchmarks/README.md",
+      "units": "milliseconds; request boundaries stated per case",
+      "reproduction_level": "stored report transcription and mocked instrument tests; historical raw requests unavailable",
+      "source_ids": [
+        "W-LATENCY-PROBE",
+        "W-LATENCY-REPORT"
+      ]
+    },
+    {
+      "id": "W-ENG-04",
+      "contribution": "Explicit observation and order lifecycle handling",
+      "status": "PUBLICATION_ADAPTATION",
+      "method": "Correction-aware deduplication, cache lifetime, one-shot decision IDs and order-specific confirmation",
+      "implementation": "weather_research/execution.py",
+      "evidence": "docs/engineering-provenance.md",
+      "reproduction_level": "synthetic component tests",
+      "deployment_status": "public guards do not establish historical deployment behavior"
+    },
+    {
+      "id": "W-MODEL-01",
+      "contribution": "Observation-driven temperature and daily-maximum probabilities",
+      "status": "RECORDED_REPLAY",
+      "implementation": "kalman_engine.py",
+      "example": "replay.py",
+      "evidence": "data/manifest.json",
+      "sample": "Istanbul, 2026-06-11",
+      "result": "1165 recorded input events",
+      "reproduction_level": "single-day recorded replay; not held-out skill or returns"
+    }
+  ]
+}
