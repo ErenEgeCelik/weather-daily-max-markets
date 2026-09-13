@@ -1,15 +1,15 @@
-# Weather Prediction Markets
+# Weather Prediction-Market Research
 
-**From a newly published weather observation to a prepared market action.**
+**Observation pipelines, probability models and trading decisions.**
 
 I built weather-market data collection and execution components and researched how station observations
 and forecasts change daily maximum-temperature probabilities. The work connects source timing,
 probability modeling, market rules and the cost of acting through an order book.
 
-The public engineering layer shows NOAA/MGM parsing and concurrent collection, observation clocks,
-CLOB metadata caching and pre-signing, and connection/request instrumentation. A recorded Kalman replay
-shows the probability-model side. Start with the [system architecture](docs/system-architecture.md),
-or use the [contribution index](CONTRIBUTIONS.md) for a quick technical review.
+The repository covers five layers: observations, probability models, sensor/calibration research,
+market decisions and execution engineering. The current code includes a recorded Kalman replay and
+source-derived acquisition/execution components. Start with the [research map](docs/research-map.md)
+to see the full scope and available depth, or use the [contribution index](CONTRIBUTIONS.md).
 
 ## What I built
 
