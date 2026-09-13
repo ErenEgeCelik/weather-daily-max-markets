@@ -6,18 +6,22 @@
   "files": [
     {
       "path": "data/istanbul_2026-06-11/forecast_raw.jsonl",
-      "sha256": "4ca1a34d98c5fbe14fcd3ca69bb2d4a762bf00e81728e8192db0c67233723b15",
-      "records": 42
+      "sha256": "0a87a617e945f2580c8a3ae3077e874c991e0a12b53cf0312809dc8edcf82e9b",
+      "records": 42,
+      "previous_windows_checkout_sha256": "4ca1a34d98c5fbe14fcd3ca69bb2d4a762bf00e81728e8192db0c67233723b15"
     },
     {
       "path": "data/istanbul_2026-06-11/metar_raw.jsonl",
-      "sha256": "80caf35b1b2ea4894154a2327d53b579285d889943747f8efc115170848e7c86",
-      "records": 26
+      "sha256": "a10ffb3bf80697446f24d705bf45a2983f8ec6c5519dfe803cee4fc413551059",
+      "records": 26,
+      "previous_windows_checkout_sha256": "80caf35b1b2ea4894154a2327d53b579285d889943747f8efc115170848e7c86"
     },
     {
       "path": "data/istanbul_2026-06-11/pws_raw.jsonl",
-      "sha256": "b8e69d41e677b18c234c5d94d4b7734e8f0eabd0d40320df4005ea6285cecc52",
-      "records": 1097
+      "sha256": "dcc8a82ea7714114a4876235df619232c156f355e56ec0315653160ed7528e81",
+      "records": 1097,
+      "previous_windows_checkout_sha256": "b8e69d41e677b18c234c5d94d4b7734e8f0eabd0d40320df4005ea6285cecc52"
     }
-  ]
+  ],
+  "hash_basis": "SHA-256 of published LF bytes; prior Windows checkout fingerprints retained separately"
 }
