@@ -1,10 +1,11 @@
-# Weather Prediction-Market Research
+# Weather Daily-Max Markets
 
-**Observation pipelines, probability models and trading decisions.**
+**Live trading, observation pipelines, probability models and execution engineering.**
 
-I built weather-market data collection and execution components and researched how station observations
-and forecasts change daily maximum-temperature probabilities. The work connects source timing,
-probability modeling, market rules and the cost of acting through an order book.
+I traded daily-maximum temperature prediction markets and built observation-collection and execution
+components for that work. Alongside live trading, I researched how station observations and forecasts
+change daily maximum-temperature probabilities. The work connects source timing, probability modeling,
+market rules and the cost of acting through an order book.
 
 The repository follows the complete research chain: observations -> temperature posterior -> contract
 probabilities -> portfolio decisions -> prepared execution. It includes source-derived components,
@@ -125,7 +126,7 @@ version labels; they are not attributed to corrected public code. The compact au
 score calculations, not the entire collection and model-fitting history.
 
 [Eren Ege Çelik](https://www.erenege.dev) ·
-[Related crypto research](https://github.com/ErenEgeCelik/btc-5m-market-microstructure)
+[Related crypto research](https://github.com/ErenEgeCelik/crypto-updown-prediction-market-research)
 
 ## License
 

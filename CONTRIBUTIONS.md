@@ -2,7 +2,9 @@
 
 I built weather-market acquisition and execution components and investigated how observations and
 forecasts should change contract probabilities. This index connects those contributions to code and
-evidence. It is also a source for preparing research and engineering applications.
+evidence. The programme included live trading in daily-maximum temperature markets, alongside
+probability and decision research with distinct deployment states. It is also a source for preparing
+trading, research and engineering applications.
 
 | ID | Contribution | Inspect | Evidence |
 |---|---|---|---|
